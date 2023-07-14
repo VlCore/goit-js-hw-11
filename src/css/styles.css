@@ -18,8 +18,8 @@
   
 body {
     background-image: linear-gradient(to top, #ad5389, #2f0743); 
-    /* background-repeat: no-repeat; */
-    /* height: 100vh; */
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .header {
@@ -29,7 +29,6 @@ body {
     justify-content: center;
     background-image: linear-gradient(to right, #41295a, #2f0743);
     padding: 20px;
-    width: 100%;
     box-shadow: 0 0 50px 15px #41295a;
 }
 
