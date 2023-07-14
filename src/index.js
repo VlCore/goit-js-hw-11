@@ -23,8 +23,10 @@ const onFormSubmit = async event => {
     if (hits.length === 0) {
         Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         refer.loadBtn.classList.add('visually-hidden')
+        gallery.innerHTML = '';
         return;
     }
+    
     createCard(hits)
     gallery.innerHTML = createCard(hits)
     lightbox = new SimpleLightbox('.gallery a', {
