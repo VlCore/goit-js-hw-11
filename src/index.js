@@ -32,6 +32,7 @@ const onFormSubmit = async event => {
         animationSpeed: 300,
     });
     lightbox.refresh();
+    refer.loadBtn.classList.remove('visually-hidden')
 }
 
 const onLoadClick = async () => {

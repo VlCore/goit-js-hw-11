@@ -18,8 +18,7 @@
   
 body {
     background-image: linear-gradient(to top, #ad5389, #2f0743); 
-    background-repeat: no-repeat;
-    height: 100vh;
+    
 }
 
 .header {
