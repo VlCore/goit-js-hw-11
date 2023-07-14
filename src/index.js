@@ -14,6 +14,7 @@ const onFormSubmit = async event => {
     curPage = 1
 
     if (inputValue.trim() === '') {
+        Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         refer.loadBtn.classList.add('visually-hidden')
         return
     }
