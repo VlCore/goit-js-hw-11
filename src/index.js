@@ -8,6 +8,13 @@ let inputValue = '';
 let curPage = 1;
 let lightbox = null
 const gallery = document.querySelector('.gallery')
+const initializeLightbox = () => {
+    lightbox = new SimpleLightbox('.gallery a', {
+      overlayOpacity: 0.4,
+      animationSpeed: 300,
+    });
+  };
+  refer.loadBtn.classList.add('visually-hidden')
 const onFormSubmit = async event => {
     event.preventDefault()
     inputValue = event.target.elements.searchQuery.value
@@ -30,10 +37,7 @@ const onFormSubmit = async event => {
     
     createCard(hits)
     gallery.innerHTML = createCard(hits)
-    lightbox = new SimpleLightbox('.gallery a', {
-        overlayOpacity: 0.4,
-        animationSpeed: 300,
-    });
+    initializeLightbox()
     lightbox.refresh();
     refer.loadBtn.classList.remove('visually-hidden')
 }
@@ -43,10 +47,6 @@ const onLoadClick = async () => {
     const {totalHits, hits} = await getapi(inputValue, curPage)
     const totalPages = Math.ceil(totalHits / 40)
     gallery.insertAdjacentHTML('beforeend', createCard(hits))
-    lightbox = new SimpleLightbox('.gallery a', {
-        overlayOpacity: 0.4,
-        animationSpeed: 300,
-    });
     
     if (curPage >= totalPages) {
         refer.loadBtn.classList.add('visually-hidden');
@@ -54,7 +54,7 @@ const onLoadClick = async () => {
     } else {
         refer.loadBtn.classList.remove('visually-hidden')
     }
-
+    initializeLightbox()
     lightbox.refresh();
 }
 
